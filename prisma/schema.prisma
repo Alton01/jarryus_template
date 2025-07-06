@@ -1,0 +1,148 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                       String  @unique @default(cuid())
+  userId                   String @unique @id
+  userName                 String
+  userEmail                String
+  userImage                String?
+  userRole                 Role      @default(USER)
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+ 
+}
+
+model Blogpost {
+  id                      String @unique @default(cuid())
+  blogTitle               String
+  blogImageBanner         String
+  blogContent             String  
+  blogSlug                String @unique @id
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+}
+
+model Project {
+  id                      String @id @unique @default(cuid())
+  projectName             String
+  projectDescription      String
+  projectShortDescription String
+  projectDate             String
+  projectImage1           String
+  projectImage2           String
+  projectImage3           String
+  projectImage4           String
+  projectImage5           String
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
+
+
+model Property {
+  id                      String @id @unique @default(cuid())
+  propertyLocation        String
+  propertyDescription     String
+  propertyDocAvailable    String
+  propertyType            String
+  propertyLandSize        String
+  estateProperty          Boolean @default(false)
+  fullyFurnished          Boolean @default(false)
+  swimmingPool            Boolean @default(false)
+  electricity24hour       Boolean @default(false)
+  servicedProperty        Boolean @default(false)
+  securityPersonnel       Boolean @default(false)
+  wiFi                    Boolean @default(false)
+  forSale                 Boolean @default(false)
+  isAvailable             Boolean @default(false)
+  parkingForCars          Int
+  propertyPrice           Int
+  propertyImage1          String
+  propertyImage2          String
+  propertyImage3          String
+  propertyImage4          String
+  propertyImage5          String
+  propertyImage6          String
+  propertyImage7          String
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
+
+
+model Land {
+  id                       String @id @unique @default(cuid())
+  landLocation             String
+  landDocAvailable         String
+  landDescription          String
+  landAreaSize             String
+  estateProperty           Boolean @default(false)
+  isAvailable              Boolean @default(false)
+  landSalePrice            Int
+  landImage1               String
+  landImage2               String
+  landImage3               String
+  landImage4               String
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
+
+
+model AirBnB {
+  id                       String @id @unique @default(cuid())
+  airBnBLocation           String
+  airBnBDescription        String
+  airBnBType               String
+  fullyFurnished           Boolean @default(false)
+  swimmingPool             Boolean @default(false)
+  electricity24hour        Boolean @default(false)
+  servicedProperty         Boolean @default(false)
+  securityPersonnel        Boolean @default(false)
+  wiFi                     Boolean @default(false)
+  isAvailable              Boolean @default(false)
+  parkingForCars           Int
+  airBnBDailyPrice         Int
+  airBnBWeeklyPrice        Int
+  airBnBMonthlyPrice       Int
+  airBnBImage1             String
+  airBnBImage2             String
+  airBnBImage3             String
+  airBnBImage4             String
+  airBnBImage5             String
+  airBnBImage6             String
+  airBnBImage7             String
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
+
+
+model Booking {
+    id                       String @id @unique @default(cuid())
+    bookerName               String
+    bookerPhoneNumber        String
+    bookerEmail              String?
+    propertyViewingDate      String
+    propertyType             String
+    propertyId               String
+    propertyName             String
+    createdAt                DateTime @default(now())
+    updatedAt                DateTime @updatedAt
+    }
+
+
+enum Role {
+    USER
+    ADMIN
+}
