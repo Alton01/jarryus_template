@@ -7,7 +7,7 @@ const BlogPost = async () => {
 
   if (blogPosts && blogPosts.length < 1) {
     return (
-      <div className="flex flex-1 flex-col w-full h-72 xl:h-96 px-4 ms:px-6 lg:px-8 xl:px-10">
+      <div className="flex flex-1 flex-col w-full h-72 xl:h-96 px-4 ms:px-6 lg:px-8 xl:px-10 dark:bg-[#1f242d]">
         <h1 className="font-poppins text-center font-bold text-2xl xl:text-3xl pt-11 text-slate-700 dark:text-slate-200 ">
           {" "}
           Blog{""}{" "}
