@@ -37,11 +37,11 @@ const Footer = () => {
               Jarryus Properties & Management Services Ltd.
             </Link>
             <h2>+234(0)7063853173</h2>
-            <h2>Wuse 2, Abuja, Nigeria</h2>
+            <h2>Wuse 2, Abuja, Nigeria.</h2>
           </div>
 
-          <div className="flex flex-col col-span-1 lg:col-span-2 space-y-4 items-center justify-center text-center w-full ">
-            <h1 className="text-2xl font-semibold text-amber-600 dark:text-amber-600">
+          <div className="flex flex-col col-span-1 pt-8 md:pt-0 lg:col-span-2 space-y-4 items-center justify-center text-center w-full ">
+            <h1 className="text-xl font-semibold text-amber-600 dark:text-amber-600">
               About Us
             </h1>
             <h2 className="text-md font-semibold">
